@@ -1,0 +1,27 @@
+{
+  "name": "teacher-tracker-cetys",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@heroicons/vue": "^2.1.4",
+    "dayjs": "^1.11.10",
+    "firebase": "^10.7.2",
+    "gsap": "^3.12.5",
+    "vue": "^3.4.15",
+    "vue-router": "^4.2.5",
+    "vuefire": "^3.1.18"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.0.3",
+    "autoprefixer": "^10.4.16",
+    "postcss": "^8.4.32",
+    "tailwindcss": "^3.4.1",
+    "vite": "^5.0.12"
+  }
+}
