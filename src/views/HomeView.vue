@@ -9,7 +9,7 @@
           Teacher Tracker CETYS
         </h1>
         <p class="max-w-xl text-lg text-gray-600 dark:text-gray-300">
-          Descubre en tiempo real dónde se encuentran tus profesores. Un diseño inspirado en Apple, animaciones suaves y datos sincronizados para ayudarte
+          Descubre en tiempo real dónde se encuentran tus profesores. Animaciones suaves y datos sincronizados para ayudarte
           a optimizar tu día en el campus.
         </p>
         <div class="flex flex-wrap items-center gap-4">
