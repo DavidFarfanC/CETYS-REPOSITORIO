@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 import HomeView from '@/views/HomeView.vue';
 import DashboardView from '@/views/DashboardView.vue';
 import MapView from '@/views/MapView.vue';
+import AsistenciaView from '@/views/AsistenciaView.vue';
 
 const router = createRouter({
   history: createWebHistory(),
@@ -24,6 +25,11 @@ const router = createRouter({
     {
       path: '/profesores/:id',
       redirect: '/'
+    },
+    {
+      path: '/asistencia/miguel_lara',
+      name: 'asistencia-miguel-lara',
+      component: AsistenciaView
     }
   ],
   scrollBehavior() {
