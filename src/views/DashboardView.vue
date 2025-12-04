@@ -10,9 +10,9 @@
           </p>
         </div>
         <div class="flex gap-2 text-sm text-gray-500 dark:text-gray-300">
-          <span>Actualizado</span>
+          <span>Hora actual en CETYS:</span>
           <strong class="text-cetys-black dark:text-white">
-            {{ lastUpdated ? lastUpdated.format('HH:mm:ss') : 'Sincronizando…' }}
+            {{ horaTijuana || 'Sincronizando…' }}
           </strong>
         </div>
       </div>
@@ -59,7 +59,7 @@
       </div>
       <div class="rounded-3xl border border-black/5 bg-white/80 p-6 shadow-xl backdrop-blur-lg dark:border-white/10 dark:bg-gray-900/60">
         <p class="text-xs uppercase tracking-[0.3em] text-gray-400">Próxima actualización</p>
-        <p class="mt-2 text-xl font-semibold text-cetys-black dark:text-white">Menos de 60 segundos</p>
+        <p class="mt-2 text-xl font-semibold text-cetys-black dark:text-white">Menos de 3 minutos</p>
         <p class="text-sm text-gray-500 dark:text-gray-300">Actualización automática cada minuto.</p>
       </div>
     </div>
@@ -80,7 +80,7 @@
 </template>
 
 <script setup>
-import { computed, ref } from 'vue';
+import { computed, onMounted, onUnmounted, ref } from 'vue';
 import ProfessorCard from '@/components/ProfessorCard.vue';
 import ProfessorDetailModal from '@/components/ProfessorDetailModal.vue';
 import { useSchedule } from '@/composables/useSchedule';
@@ -88,6 +88,8 @@ import { useSchedule } from '@/composables/useSchedule';
 const search = ref('');
 const department = ref('todos');
 const selected = ref(null);
+const horaTijuana = ref('');
+let horaInterval;
 
 const { professors, loading, activeCount, lastUpdated, refreshNow } = useSchedule();
 
@@ -116,4 +118,24 @@ const filteredProfessors = computed(() => {
 const openModal = (profesor) => {
   selected.value = profesor;
 };
+
+const updateHoraTijuana = () => {
+  horaTijuana.value = new Date().toLocaleTimeString('es-MX', {
+    timeZone: 'America/Tijuana',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit'
+  });
+};
+
+onMounted(() => {
+  updateHoraTijuana();
+  horaInterval = window.setInterval(updateHoraTijuana, 1000);
+});
+
+onUnmounted(() => {
+  if (horaInterval) {
+    window.clearInterval(horaInterval);
+  }
+});
 </script>
