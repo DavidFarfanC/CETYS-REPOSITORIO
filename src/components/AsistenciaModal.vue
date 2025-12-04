@@ -1,24 +1,46 @@
 <template>
-  <Transition name="fade">
+  <Transition name="modal-scale">
     <div v-if="open">
-      <div class="fixed inset-0 z-40 bg-black bg-opacity-40 backdrop-blur-sm" />
+      <div class="fixed inset-0 z-40 bg-black/60 backdrop-blur-md transition-opacity duration-200" />
       <div class="fixed inset-0 z-50 flex items-center justify-center px-4">
-        <div class="w-full max-w-xl rounded-3xl border border-black/5 bg-white/95 p-8 shadow-2xl backdrop-blur-xl dark:border-white/10 dark:bg-gray-900/90">
-          <h2 class="text-3xl font-semibold text-cetys-black dark:text-white">Registro de asistencia a la clase</h2>
-          <p class="mt-2 text-sm text-gray-600 dark:text-gray-300">
-            Profesor: Miguel Ángel Lara Ceballos · Ubicación actual: CETYS Universidad Tijuana
-          </p>
-          <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+        <div
+          class="w-full max-w-2xl overflow-hidden rounded-3xl border border-white/10 bg-gray-900/90 p-8 text-white shadow-[0_8px_32px_rgba(0,0,0,0.35)] backdrop-blur-xl transition"
+          :class="{
+            'scale-100 opacity-100': open,
+            'scale-95 opacity-0': !open
+          }"
+        >
+          <header class="flex items-start gap-4">
+            <img
+              src="https://res.cloudinary.com/dvt59hfgg/image/upload/v1764835327/id_moises_adame_nombre_Mois%C3%A9s_S%C3%A1nchez_Adame_departamento_Ingenier%C3%ADa_avatar_httpsres.cloudinary.comdvt59hfggimageuploadv176482549431_ufdccd.png_ubicacion_actual_4302_estado_en_clase_horario_ogxem0.jpg"
+              alt="Miguel Ángel Lara Ceballos"
+              class="h-18 w-18 rounded-full border border-white/40 object-cover shadow-lg"
+              style="height: 72px; width: 72px"
+            />
+            <div class="space-y-2">
+              <p class="text-sm font-medium uppercase tracking-[0.35em] text-gray-300">Registro</p>
+              <h2 class="text-3xl font-semibold">Registro de asistencia a la clase</h2>
+              <p class="text-base text-gray-300">
+                Profesor: <strong class="text-white">Miguel Ángel Lara Ceballos</strong> ·
+                <span class="inline-flex items-center gap-2">
+                  <span class="inline-block h-2.5 w-2.5 rounded-full bg-[#6FCF97] animate-[pulse-green_1.4s_ease-in-out_infinite]" />
+                  Ubicación actual: CETYS Universidad Tijuana
+                </span>
+              </p>
+            </div>
+          </header>
+
+          <div class="mt-8 flex flex-col gap-4 sm:flex-row">
             <button
               type="button"
-              class="inline-flex flex-1 items-center justify-center rounded-2xl bg-[#F2C94C] px-4 py-3 text-sm font-semibold text-black shadow-md transition hover:scale-[1.01] hover:shadow-lg"
+              class="inline-flex flex-1 items-center justify-center gap-3 rounded-2xl bg-[#F2C94C] px-5 py-4 text-sm font-semibold text-black shadow-md transition hover:scale-[1.01] hover:shadow-lg"
               @click="$emit('close')"
             >
               Asistir a la clase
             </button>
             <button
               type="button"
-              class="inline-flex flex-1 items-center justify-center rounded-2xl bg-gray-700 px-4 py-3 text-sm font-semibold text-white shadow-md transition hover:scale-[1.01] hover:shadow-lg"
+              class="inline-flex flex-1 items-center justify-center gap-3 rounded-2xl bg-gray-700 px-5 py-4 text-sm font-semibold text-white shadow-md transition hover:scale-[1.01] hover:shadow-lg"
               @click="$emit('close')"
             >
               Falta justificada
@@ -42,12 +64,35 @@ defineEmits(['close']);
 </script>
 
 <style scoped>
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.25s ease;
+.modal-scale-enter-active {
+  transition: opacity 180ms cubic-bezier(0.22, 1, 0.36, 1), transform 180ms cubic-bezier(0.22, 1, 0.36, 1);
 }
-.fade-enter-from,
-.fade-leave-to {
+.modal-scale-leave-active {
+  transition: opacity 180ms cubic-bezier(0.22, 1, 0.36, 1), transform 180ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.modal-scale-enter-from,
+.modal-scale-leave-to {
   opacity: 0;
+  transform: scale(0.96);
+}
+.modal-scale-leave-from,
+.modal-scale-enter-to {
+  opacity: 1;
+  transform: scale(1);
+}
+
+@keyframes pulse-green {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.4);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 </style>
