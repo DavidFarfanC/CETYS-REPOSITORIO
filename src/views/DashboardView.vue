@@ -46,7 +46,7 @@
       </div>
     </header>
 
-    <div class="grid gap-6 md:grid-cols-3">
+    <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
       <div class="rounded-3xl border border-black/5 bg-white/80 p-6 shadow-xl backdrop-blur-lg dark:border-white/10 dark:bg-gray-900/60">
         <p class="text-xs uppercase tracking-[0.3em] text-gray-400">Profesores activos</p>
         <p class="mt-2 text-3xl font-semibold text-cetys-black dark:text-white">{{ activeCount }}</p>
@@ -61,6 +61,18 @@
         <p class="text-xs uppercase tracking-[0.3em] text-gray-400">Próxima actualización</p>
         <p class="mt-2 text-xl font-semibold text-cetys-black dark:text-white">Menos de 3 minutos</p>
         <p class="text-sm text-gray-500 dark:text-gray-300">Actualización automática cada minuto.</p>
+      </div>
+      <div class="weather-card">
+        <h3 class="text-sm font-semibold text-gray-200">Clima en CETYS Universidad Tijuana</h3>
+        <div class="flex items-center gap-4">
+          <img v-if="weatherIcon" :src="weatherIcon" alt="Clima" class="h-12 w-12" />
+          <div>
+            <p class="temp">{{ weatherTemp !== null ? weatherTemp + '°C' : '—' }}</p>
+            <p class="desc capitalize">{{ weatherDesc || 'Sin datos' }}</p>
+            <p class="updated">Humedad: {{ weatherHumidity !== null ? weatherHumidity + '%' : '—' }}</p>
+          </div>
+        </div>
+        <p class="updated">Actualizado: {{ weatherUpdatedAt || '—' }}</p>
       </div>
     </div>
 
@@ -90,6 +102,12 @@ const department = ref('todos');
 const selected = ref(null);
 const horaTijuana = ref('');
 let horaInterval;
+const weatherTemp = ref(null);
+const weatherDesc = ref('');
+const weatherHumidity = ref(null);
+const weatherIcon = ref('');
+const weatherUpdatedAt = ref('');
+let weatherInterval;
 
 const { professors, loading, activeCount, lastUpdated, refreshNow } = useSchedule();
 
@@ -128,14 +146,74 @@ const updateHoraTijuana = () => {
   });
 };
 
+const fetchWeather = async () => {
+  try {
+    const res = await fetch(
+      'https://api.openweathermap.org/data/2.5/weather?q=Tijuana&units=metric&appid=3ed49db67fb1c5cf91621a3e1bebf249'
+    );
+    const data = await res.json();
+    weatherTemp.value = Math.round(data.main.temp);
+    weatherDesc.value = data.weather?.[0]?.description ?? '';
+    weatherHumidity.value = data.main?.humidity ?? null;
+    const iconCode = data.weather?.[0]?.icon;
+    weatherIcon.value = iconCode ? `https://openweathermap.org/img/wn/${iconCode}@2x.png` : '';
+    weatherUpdatedAt.value = new Date().toLocaleTimeString('es-MX', {
+      hour12: false,
+      timeZone: 'America/Tijuana'
+    });
+  } catch (err) {
+    console.error('No se pudo obtener el clima', err);
+  }
+};
+
 onMounted(() => {
   updateHoraTijuana();
   horaInterval = window.setInterval(updateHoraTijuana, 1000);
+  fetchWeather();
+  weatherInterval = window.setInterval(fetchWeather, 600_000);
 });
 
 onUnmounted(() => {
   if (horaInterval) {
     window.clearInterval(horaInterval);
   }
+  if (weatherInterval) {
+    window.clearInterval(weatherInterval);
+  }
 });
 </script>
+
+<style scoped>
+.weather-card {
+  background: #0e1525;
+  padding: 20px;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  animation: fadeIn 0.3s ease-out;
+}
+.temp {
+  font-size: 28px;
+  font-weight: 700;
+  color: white;
+}
+.desc {
+  color: #a7b1c2;
+  font-size: 14px;
+}
+.updated {
+  color: #a7b1c2;
+  font-size: 12px;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+</style>
