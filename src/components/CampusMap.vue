@@ -58,6 +58,18 @@
                 {{ area.shorthand }}
               </button>
             </TransitionGroup>
+            <TransitionGroup name="marker">
+              <button
+                v-for="marker in activeMarkers"
+                :key="`prof-${marker.id}`"
+                type="button"
+                class="map-marker map-marker--live"
+                :style="profMarkerStyle(marker)"
+                :title="marker.profesor.nombre"
+              >
+                {{ marker.shorthand }}
+              </button>
+            </TransitionGroup>
           </div>
           <div class="absolute bottom-5 left-5 flex items-center gap-3 rounded-full bg-white/85 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-cetys-black shadow-lg dark:bg-gray-900/80 dark:text-white">
             <span class="inline-flex h-3 w-3 rounded-full bg-cetys-yellow" />
@@ -174,6 +186,21 @@
 import { computed, ref, watch } from 'vue';
 import { useSchedule } from '@/composables/useSchedule';
 
+const props = defineProps({
+  profesoresActivos: {
+    type: Array,
+    default: () => []
+  },
+  profesores: {
+    type: Array,
+    default: () => []
+  },
+  selectedBuilding: {
+    type: [String, null],
+    default: null
+  }
+});
+
 const mapImagePath = '/campus-map.jpg';
 const fallbackSvg = `
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 640">
@@ -209,7 +236,10 @@ const typeFilter = ref('todos');
 const selectedAreaId = ref(null);
 const hasImageError = ref(false);
 
-const { professors } = useSchedule();
+const { professors: scheduleProfessors } = useSchedule();
+const professors = computed(() =>
+  props.profesores && props.profesores.length ? props.profesores : scheduleProfessors.value
+);
 
 const campusAreasData = [
   {
@@ -315,6 +345,7 @@ const campusAreasData = [
 ];
 
 const matchesAlias = (aliases, target) => {
+  if (!target) return false;
   const normalisedTarget = target.toLowerCase();
   return aliases.some((alias) => {
     const pattern = alias.toLowerCase();
@@ -324,6 +355,29 @@ const matchesAlias = (aliases, target) => {
     return normalisedTarget.includes(pattern);
   });
 };
+
+const activeMarkers = computed(() => {
+  const activos =
+    props.profesoresActivos && props.profesoresActivos.length
+      ? props.profesoresActivos
+      : professors.value.filter((p) => (p.estadoKey ? p.estadoKey === 'en_clase' : p.estado === 'en_clase'));
+
+  return activos
+    .map((prof) => {
+      const ubicacion = prof.ubicacion_actual || prof.ubicacionActual || prof.actual?.ubicacion;
+      if (!ubicacion) return null;
+      const area = campusAreasData.find((a) => matchesAlias(a.aliases, ubicacion));
+      if (!area) return null;
+      return {
+        id: prof.id,
+        profesor: prof,
+        position: area.position,
+        shorthand: area.shorthand,
+        color: '#F2C94C'
+      };
+    })
+    .filter(Boolean);
+});
 
 const activeLocations = computed(() => {
   const set = new Set();
@@ -434,6 +488,12 @@ const markerStyle = (area) => ({
   top: `calc(${area.position.top}% - 18px)`,
   left: `calc(${area.position.left}% - 18px)`,
   '--marker-color': area.color
+});
+
+const profMarkerStyle = (marker) => ({
+  top: `calc(${marker.position.top}% - 18px)`,
+  left: `calc(${marker.position.left}% - 18px)`,
+  '--marker-color': marker.color ?? '#F2C94C'
 });
 
 const selectArea = (area) => {

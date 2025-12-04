@@ -13,10 +13,18 @@
       </div>
     </header>
 
-    <CampusMap />
+    <CampusMap :profesores-activos="profesoresActivos" :profesores="professors" :selected-building="selectedBuilding" />
   </section>
 </template>
 
 <script setup>
 import CampusMap from '@/components/CampusMap.vue';
+import { computed, ref } from 'vue';
+import { useSchedule } from '@/composables/useSchedule';
+
+const { professors } = useSchedule();
+const selectedBuilding = ref(null);
+const profesoresActivos = computed(() =>
+  professors.value.filter((p) => (p.estadoKey ? p.estadoKey === 'en_clase' : p.estado === 'en_clase'))
+);
 </script>

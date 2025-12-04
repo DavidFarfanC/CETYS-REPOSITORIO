@@ -2,7 +2,6 @@ import { createRouter, createWebHistory } from 'vue-router';
 import HomeView from '@/views/HomeView.vue';
 import DashboardView from '@/views/DashboardView.vue';
 import MapView from '@/views/MapView.vue';
-import ProfessorView from '@/views/ProfessorView.vue';
 
 const router = createRouter({
   history: createWebHistory(),
@@ -24,9 +23,7 @@ const router = createRouter({
     },
     {
       path: '/profesores/:id',
-      name: 'professor',
-      component: ProfessorView,
-      props: true
+      redirect: '/'
     }
   ],
   scrollBehavior() {
