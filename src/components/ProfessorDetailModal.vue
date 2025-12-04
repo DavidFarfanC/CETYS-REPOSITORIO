@@ -30,10 +30,11 @@
               <p class="text-sm uppercase tracking-[0.35em] text-gray-400">{{ profesor?.departamento }}</p>
               <h2 class="mt-2 text-3xl font-semibold text-cetys-black dark:text-white">{{ profesor?.nombre }}</h2>
             </div>
-            <div v-if="profesor?.actual" class="rounded-2xl bg-cetys-yellow/20 px-4 py-3 text-sm text-cetys-black dark:bg-cetys-yellow/10">
-              <p class="font-medium uppercase tracking-[0.3em] text-cetys-black/70">Ahora</p>
-              <p class="text-base font-semibold">{{ profesor.actual.actividad }}</p>
-              <p class="text-sm text-cetys-black/80">Hasta las {{ profesor.actual.fin }} · {{ profesor.actual.ubicacion }}</p>
+            <div class="rounded-2xl bg-cetys-yellow/20 px-4 py-3 text-sm text-cetys-black dark:bg-cetys-yellow/10">
+              <p class="font-medium uppercase tracking-[0.3em] text-cetys-black/70">Estado</p>
+              <p class="text-base font-semibold">{{ profesor?.estado }}</p>
+              <p v-if="profesor?.actual" class="text-sm text-cetys-black/80">Hasta las {{ profesor.actual.fin }} · {{ profesor.actual.ubicacion }}</p>
+              <p v-else class="text-sm text-cetys-black/80">Ubicación actual: {{ profesor?.ubicacionActual || 'No especificada' }}</p>
             </div>
             <RouterLink
               to="/mapa"

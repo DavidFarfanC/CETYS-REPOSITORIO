@@ -28,7 +28,7 @@
           <p v-if="profesor.actual" class="text-sm text-cetys-black/70">
             {{ profesor.actual.actividad }} · hasta {{ profesor.actual.fin }} en {{ profesor.actual.ubicacion }}
           </p>
-          <p v-else class="text-sm text-cetys-black/70">Fuera de horario programado en este momento.</p>
+          <p v-else class="text-sm text-cetys-black/70">Ubicación actual: {{ profesor.ubicacionActual || 'No especificada' }}</p>
         </div>
       </div>
       <div class="space-y-6">

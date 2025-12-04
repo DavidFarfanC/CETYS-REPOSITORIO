@@ -1,72 +1,65 @@
 # Teacher Tracker CETYS
 
-Aplicación web en Vue 3 para conocer en tiempo real la disponibilidad y ubicación de profesores del Campus CETYS Universidad Tijuana. La UI consume un API propia (que a su vez puede leer de Firebase) y presenta un dashboard, mapa y vistas detalladas con una experiencia tipo Apple/Tesla.
+Landing, dashboard y mapa interactivo en Vue 3/Tailwind para saber dónde están los profesores del Campus CETYS Universidad Tijuana. La aplicación es 100% frontend y lee un único archivo JSON estático con los profesores; no hay backend, Firebase ni APIs externas.
 
-## Objetivo
-- Dar a estudiantes y staff una vista rápida de dónde está cada profesor y qué actividad tiene en curso.
-- Centralizar la consulta en un API para que los datos se actualicen por semestre sin tocar el frontend.
-- Evitar pooling agresivo en el cliente: sólo se consulta bajo demanda (botón “Actualizar” o al entrar a las vistas).
+## Arquitectura (estática)
+- **Frontend:** Vue 3 + Vite, TailwindCSS, GSAP y Heroicons.
+- **Datos:** `public/data/profesores.json` servido directamente por Vite/Vercel.
+- **Lógica:** `src/composables/useSchedule.js` hace `fetch('/data/profesores.json')`, calcula el bloque actual/próximo con dayjs y enriquece cada profesor con estados y estilos.
+- **UI:** vistas para landing (`HomeView`), dashboard con filtros y modal (`DashboardView`), mapa (`MapView` + `CampusMap`) y detalle (`ProfessorView`).
 
-## Arquitectura propuesta
-- **Frontend:** Vue 3 + Vite, TailwindCSS para estilos, GSAP para animaciones, Heroicons para iconos.
-- **Estado y lógica horaria:** `src/composables/useSchedule.js` obtiene los profesores desde el API, normaliza horarios con dayjs y calcula:
-  - Estado actual (en clase/lab/oficina/asesoría/ disponible) y estilos asociados.
-  - Bloque siguiente y contador de activos.
-- **UI:** vistas para landing (`HomeView`), dashboard con filtros y modal (`DashboardView`), mapa (`MapView` + `CampusMap`), y detalle por profesor (`ProfessorView`).
-- **Datos:** API REST externa que lee la colección `profesores` de tu backend/Firebase. El frontend sólo necesita los endpoints y un `VITE_API_BASE_URL`.
-- **Fallback local:** `src/assets/data/professors.json` se usa automáticamente si el API falla o aún no está disponible.
-
-## Flujo de comunicación
-1. El cliente lee `VITE_API_BASE_URL` y ejecuta `GET /profesores` al montar las vistas que usan `useSchedule`.
-2. La respuesta se enriquece en el cliente (cálculo de estado, actividad en curso y próxima).
-3. El botón “Actualizar ahora” vuelve a consultar el API; no hay intervalos de 60 s.
-4. `ProfessorView` y el mapa comparten el mismo estado en memoria, evitando consultas duplicadas.
-
-## API esperada (ejemplo)
-Base URL definida en `VITE_API_BASE_URL` (por defecto `http://localhost:8787`).
-
-- `GET /profesores` → lista de profesores
-  ```json
-  [
-    {
-      "id": "juan_ramirez",
-      "nombre": "Dr. Juan Ramírez",
-      "departamento": "Física",
-      "avatar": "https://...",
-      "horarios": [
-        { "dia": "Lunes", "inicio": "08:00", "fin": "09:30", "ubicacion": "A-203", "actividad": "Clase de Física I" },
-        { "dia": "Lunes", "inicio": "10:00", "fin": "11:00", "ubicacion": "Oficina D-12", "actividad": "Asesorías" }
-      ]
-    }
+## Archivo `public/data/profesores.json`
+El JSON es un **array** de profesores. Cada profesor debe incluir exactamente:
+```json
+{
+  "id": "juan_ramirez",
+  "nombre": "Dr. Juan Ramírez",
+  "departamento": "Física",
+  "avatar": "https://res.cloudinary.com/.../juan.png",
+  "ubicacion_actual": "Aula A-203",
+  "estado": "en_clase",
+  "horarios": [
+    { "dia": "Lunes", "inicio": "08:00", "fin": "09:30", "ubicacion": "A-203", "actividad": "Física I" },
+    { "dia": "Lunes", "inicio": "10:00", "fin": "11:00", "ubicacion": "D-12", "actividad": "Asesorías" }
   ]
-  ```
-- `GET /profesores/:id` → detalle individual (misma forma del elemento anterior).
-
-El backend puede montar estos endpoints directamente sobre Firestore/Realtime DB y exponerlos al frontend.
-
-## Configuración rápida
-1) Crear `.env` en la raíz:
-```env
-VITE_API_BASE_URL=http://localhost:8787
+}
 ```
-2) Instalar y correr:
+Valores válidos para `estado`: `en_clase`, `oficina`, `asesoria`, `disponible`.
+
+### Ejemplo incluido
+Se incluye un ejemplo listo en `public/data/profesores.json` con 3 profesores (avatars en Cloudinary).
+
+### Cómo actualizar cada semestre
+1. Abre `public/data/profesores.json`.
+2. Agrega/edita profesores siguiendo la estructura anterior.
+3. Guarda y despliega: el frontend los leerá automáticamente al cargar.
+
+### Cómo añadir más profesores
+Duplica un objeto, cambia `id` (único), nombre, departamento, avatar, `ubicacion_actual`, `estado` y los bloques de `horarios`.
+
+## Estructura mínima del proyecto
+- `src/main.js`: arranque de Vue + router.
+- `src/composables/useSchedule.js`: carga del JSON local y cálculo de horarios.
+- `src/views/*`: páginas (Home, Dashboard, Map, Professor).
+- `src/components/*`: header, tarjetas, modal y mapa.
+- `public/data/profesores.json`: fuente de datos única.
+- `public/campus-map.jpg` (opcional): plano oficial del campus; si no existe, se usa un SVG de respaldo.
+
+## Uso local
 ```bash
 npm install
 npm run dev
 ```
-3) Opcional: coloca `public/campus-map.jpg` para mostrar el plano oficial; de lo contrario se usa un SVG de respaldo.
+Abrir `http://localhost:5173` y verificar que el dashboard muestra los profesores del JSON.
 
-## Estructura destacada
-- `src/main.js`: bootstrap Vue + router.
-- `src/composables/useSchedule.js`: consultas al API, enriquecimiento y estados derivados.
-- `src/views/DashboardView.vue`: búsqueda, filtros y tarjetas de profesores.
-- `src/components/ProfessorCard.vue` y `ProfessorDetailModal.vue`: UI de profesor.
-- `src/components/CampusMap.vue`: mapa con marcadores y vinculación a horarios activos.
+## Deploy en Vercel
+1. Conecta el repo en Vercel.
+2. Build command: `npm run build`. Output: `dist`.
+3. El archivo `public/data/profesores.json` se sirve tal cual; actualízalo y vuelve a desplegar para cambios de semestre.
 
-## Testing y QA manual
-- Verifica que `GET /profesores` responde y que el botón “Actualizar ahora” refleja cambios.
-- Cambia la hora del sistema o los datos mock para validar el cálculo de estado actual/próximo.
-- Revisa responsividad (breakpoints Tailwind) y carga de la imagen del mapa.
+## Notas
+- No existe backend, Firebase ni variables de entorno.
+- El botón “Actualizar ahora” vuelve a leer el JSON local (sin pooling cada minuto).
 
 ---
 

@@ -28,13 +28,13 @@
       <div>
         <p class="text-xs uppercase tracking-widest text-white/60">Actividad</p>
         <p class="mt-1 text-base font-medium text-white">
-          {{ profesor.actual ? profesor.actual.actividad : 'Fuera de horario' }}
+          {{ profesor.actual ? profesor.actual.actividad : profesor.estado }}
         </p>
       </div>
       <div>
         <p class="text-xs uppercase tracking-widest text-white/60">Ubicación</p>
         <p class="mt-1 text-base font-medium text-white">
-          {{ profesor.actual ? profesor.actual.ubicacion : 'Sin asignar' }}
+          {{ profesor.actual ? profesor.actual.ubicacion : profesor.ubicacionActual || 'Sin asignar' }}
         </p>
       </div>
     </div>
