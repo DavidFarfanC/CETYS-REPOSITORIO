@@ -25,6 +25,6 @@ const closeModal = () => {
     } else {
       router.push('/');
     }
-  }, 180); // duración de la animación de salida
+  }, 200); // pequeña espera para respetar la animación de salida
 };
 </script>

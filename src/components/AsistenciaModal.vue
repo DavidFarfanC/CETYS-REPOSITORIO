@@ -1,7 +1,7 @@
 <template>
   <Transition name="modal-scale">
     <div v-if="open">
-      <div class="fixed inset-0 z-40 bg-black/60 backdrop-blur-md transition-opacity duration-200" />
+      <div class="fixed inset-0 z-40 bg-black/50 backdrop-blur-sm transition-opacity duration-200" />
       <div class="fixed inset-0 z-50 flex items-center justify-center px-4">
         <div
           class="w-full max-w-2xl overflow-hidden rounded-3xl border border-white/10 bg-gray-900/90 p-8 text-white shadow-[0_8px_32px_rgba(0,0,0,0.35)] backdrop-blur-xl transition"
@@ -14,7 +14,7 @@
             <img
               src="https://res.cloudinary.com/dvt59hfgg/image/upload/v1764835327/id_moises_adame_nombre_Mois%C3%A9s_S%C3%A1nchez_Adame_departamento_Ingenier%C3%ADa_avatar_httpsres.cloudinary.comdvt59hfggimageuploadv176482549431_ufdccd.png_ubicacion_actual_4302_estado_en_clase_horario_ogxem0.jpg"
               alt="Miguel Ángel Lara Ceballos"
-              class="h-18 w-18 rounded-full border border-white/40 object-cover shadow-lg"
+              class="h-18 w-18 rounded-full border border-white/10 object-cover shadow-lg"
               style="height: 72px; width: 72px"
             />
             <div class="space-y-2">
@@ -30,21 +30,30 @@
             </div>
           </header>
 
-          <div class="mt-8 flex flex-col gap-4 sm:flex-row">
+          <div class="mt-8 flex flex-col gap-4 sm:flex-row" v-if="!processing">
             <button
               type="button"
               class="inline-flex flex-1 items-center justify-center gap-3 rounded-2xl bg-[#F2C94C] px-5 py-4 text-sm font-semibold text-black shadow-md transition hover:scale-[1.01] hover:shadow-lg"
-              @click="$emit('close')"
+              @click="handleAction('asistencia')"
             >
               Asistir a la clase
             </button>
             <button
               type="button"
               class="inline-flex flex-1 items-center justify-center gap-3 rounded-2xl bg-gray-700 px-5 py-4 text-sm font-semibold text-white shadow-md transition hover:scale-[1.01] hover:shadow-lg"
-              @click="$emit('close')"
+              @click="handleAction('falta')"
             >
               Falta justificada
             </button>
+          </div>
+          <div v-else class="mt-8 space-y-3">
+            <div
+              class="rounded-2xl px-5 py-4 text-sm font-semibold text-white shadow-md"
+              :class="selectedAction === 'asistencia' ? 'bg-[#6FCF97] text-black' : 'bg-[#56CCF2]'"
+            >
+              {{ selectedAction === 'asistencia' ? 'Asistiendo a la clase' : 'Falta justificada en proceso' }}
+            </div>
+            <p class="text-sm text-gray-300">Cargando respuesta…</p>
           </div>
         </div>
       </div>
@@ -53,14 +62,30 @@
 </template>
 
 <script setup>
-defineProps({
+import { ref } from 'vue';
+
+const props = defineProps({
   open: {
     type: Boolean,
     default: false
   }
 });
 
-defineEmits(['close']);
+const emit = defineEmits(['close']);
+
+const processing = ref(false);
+const selectedAction = ref(null);
+
+const handleAction = (action) => {
+  if (processing.value) return;
+  selectedAction.value = action;
+  processing.value = true;
+  setTimeout(() => {
+    emit('close');
+    processing.value = false;
+    selectedAction.value = null;
+  }, 2000);
+};
 </script>
 
 <style scoped>
