@@ -31,15 +31,22 @@
       <div class="relative">
         <div class="floating-card absolute -inset-8 -z-10 rounded-[36px] border border-white/20 bg-white/60 shadow-2xl shadow-black/10 backdrop-blur-xl dark:border-white/5 dark:bg-gray-800/40" />
         <div class="rounded-3xl border border-white/20 bg-white/80 p-6 shadow-2xl shadow-black/10 backdrop-blur-xl dark:border-white/5 dark:bg-gray-800/60">
-          <h2 class="text-lg font-semibold text-cetys-black dark:text-white">Profesores activos ahora</h2>
-          <ul class="mt-6 space-y-4">
-            <li v-for="prof in spotlight" :key="prof.nombre" class="flex items-center justify-between rounded-2xl border border-black/5 bg-gray-50/60 p-4 shadow-sm transition hover:-translate-y-1 hover:border-cetys-yellow/70 hover:bg-white/80 dark:border-white/10 dark:bg-gray-900/60">
+          <h2 class="text-lg font-semibold text-cetys-black dark:text-white">Profesores destacados ahora</h2>
+          <div v-if="!spotlight.length" class="mt-6 rounded-2xl border border-black/5 bg-gray-50/80 p-6 text-sm text-gray-500 dark:border-white/10 dark:bg-gray-900/60 dark:text-gray-300">
+            Cargando profesores…
+          </div>
+          <ul v-else class="mt-6 space-y-4">
+            <li
+              v-for="prof in spotlight"
+              :key="prof.id"
+              class="flex items-center justify-between rounded-2xl border border-black/5 bg-gray-50/60 p-4 shadow-sm transition hover:-translate-y-1 hover:border-cetys-yellow/70 hover:bg-white/80 dark:border-white/10 dark:bg-gray-900/60"
+            >
               <div>
                 <p class="text-sm font-medium text-gray-500 dark:text-gray-300">{{ prof.departamento }}</p>
                 <p class="text-lg font-semibold text-cetys-black dark:text-white">{{ prof.nombre }}</p>
               </div>
               <div class="text-right">
-                <p class="text-xs uppercase tracking-widest text-gray-400 dark:text-gray-500">{{ prof.actividad }}</p>
+                <p class="text-xs uppercase tracking-widest text-gray-400 dark:text-gray-500">{{ prof.estado }}</p>
                 <p class="text-sm font-medium text-cetys-black dark:text-white">{{ prof.ubicacion }}</p>
               </div>
             </li>
@@ -52,29 +59,24 @@
 
 <script setup>
 import { RouterLink } from 'vue-router';
-import { onMounted, ref } from 'vue';
+import { computed, onMounted } from 'vue';
 import { gsap } from 'gsap';
+import { useSchedule } from '@/composables/useSchedule';
 
-const spotlight = ref([
-  {
-    nombre: 'Dr. Juan Ramírez',
-    departamento: 'Física',
-    actividad: 'Clase de Física I',
-    ubicacion: 'A-203'
-  },
-  {
-    nombre: 'Mtra. Sofía Beltrán',
-    departamento: 'Diseño',
-    actividad: 'Revisión de proyecto',
-    ubicacion: 'Studio C'
-  },
-  {
-    nombre: 'Ing. Luis Montiel',
-    departamento: 'Robótica',
-    actividad: 'Laboratorio de IA',
-    ubicacion: 'Lab. Innovación'
-  }
-]);
+const { professors } = useSchedule();
+
+const spotlight = computed(() =>
+  professors.value
+    .filter((prof) => prof.actual || prof.estado)
+    .slice(0, 3)
+    .map((prof) => ({
+      id: prof.id,
+      nombre: prof.nombre,
+      departamento: prof.departamento,
+      estado: prof.estado,
+      ubicacion: prof.actual?.ubicacion || prof.ubicacionActual || 'Sin ubicación'
+    }))
+);
 
 onMounted(() => {
   gsap.from('.floating-card', {

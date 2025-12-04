@@ -1,41 +1,508 @@
 [
   {
-    "id": "juan_ramirez",
-    "nombre": "Dr. Juan Ramírez",
-    "departamento": "Física",
-    "avatar": "https://res.cloudinary.com/dxfq3iotg/image/upload/v1700000001/cetys/juan_ramirez.png",
-    "ubicacion_actual": "Aula A-203",
+    "id": "adolfo_martinez",
+    "nombre": "Adolfo Esquivel Martínez",
+    "departamento": "Ingeniería",
+    "avatar": "https://res.cloudinary.com/dvt59hfgg/image/upload/v1764825514/1_tvcldp.png",
+    "ubicacion_actual": "8102",
     "estado": "en_clase",
     "horarios": [
-      { "dia": "Lunes", "inicio": "08:00", "fin": "09:30", "ubicacion": "A-203", "actividad": "Física I" },
-      { "dia": "Lunes", "inicio": "10:00", "fin": "11:00", "ubicacion": "D-12", "actividad": "Asesorías" },
-      { "dia": "Miércoles", "inicio": "09:00", "fin": "11:00", "ubicacion": "Lab. Óptica", "actividad": "Laboratorio de Óptica" }
+      { "dia": "Martes", "inicio": "20:00", "fin": "22:00", "ubicacion": "8102", "actividad": "Diseño de Mecanismos" },
+      { "dia": "Lunes", "inicio": "10:00", "fin": "12:00", "ubicacion": "4306", "actividad": "Termodinámica" },
+      { "dia": "Miércoles", "inicio": "16:00", "fin": "18:00", "ubicacion": "7203", "actividad": "Cálculo Diferencial" },
+      { "dia": "Viernes", "inicio": "18:00", "fin": "20:00", "ubicacion": "7205", "actividad": "Sistemas Digitales" }
     ]
   },
   {
-    "id": "sofia_beltran",
-    "nombre": "Mtra. Sofía Beltrán",
-    "departamento": "Diseño",
-    "avatar": "https://res.cloudinary.com/dxfq3iotg/image/upload/v1700000001/cetys/sofia_beltran.png",
-    "ubicacion_actual": "Studio C",
-    "estado": "asesoria",
+    "id": "alfredo_garcia",
+    "nombre": "Alfredo Valadez García",
+    "departamento": "Ingeniería",
+    "avatar": "https://res.cloudinary.com/dvt59hfgg/image/upload/v1764825514/2_rkzaxr.png",
+    "ubicacion_actual": "7206",
+    "estado": "en_clase",
     "horarios": [
-      { "dia": "Lunes", "inicio": "11:00", "fin": "12:30", "ubicacion": "Studio C", "actividad": "Taller de Diseño UX" },
-      { "dia": "Miércoles", "inicio": "13:00", "fin": "15:00", "ubicacion": "Studio A", "actividad": "Proyecto Integrador" },
-      { "dia": "Jueves", "inicio": "09:00", "fin": "10:30", "ubicacion": "B-10", "actividad": "Mentorías de portafolio" }
+      { "dia": "Jueves", "inicio": "20:00", "fin": "22:00", "ubicacion": "7206", "actividad": "Programación en Python" },
+      { "dia": "Miércoles", "inicio": "12:00", "fin": "14:00", "ubicacion": "9104", "actividad": "Cálculo Integral" },
+      { "dia": "Martes", "inicio": "08:00", "fin": "10:00", "ubicacion": "4203", "actividad": "Robótica I" },
+      { "dia": "Viernes", "inicio": "16:00", "fin": "18:00", "ubicacion": "8103", "actividad": "Termodinámica" }
     ]
   },
   {
-    "id": "luis_montiel",
-    "nombre": "Ing. Luis Montiel",
-    "departamento": "Robótica",
-    "avatar": "https://res.cloudinary.com/dxfq3iotg/image/upload/v1700000001/cetys/luis_montiel.png",
-    "ubicacion_actual": "Lab. Innovación",
-    "estado": "disponible",
+    "id": "arturo_mendez",
+    "nombre": "Arturo Javier Escoto Méndez",
+    "departamento": "Ingeniería",
+    "avatar": "https://res.cloudinary.com/dvt59hfgg/image/upload/v1764825514/3_vectlz.png",
+    "ubicacion_actual": "3301",
+    "estado": "en_clase",
     "horarios": [
-      { "dia": "Martes", "inicio": "08:00", "fin": "10:00", "ubicacion": "Lab. Innovación", "actividad": "Robótica I" },
-      { "dia": "Jueves", "inicio": "11:00", "fin": "13:00", "ubicacion": "Lab. Innovación", "actividad": "Práctica de IA" },
-      { "dia": "Viernes", "inicio": "09:00", "fin": "11:00", "ubicacion": "C-05", "actividad": "Asesorías" }
+      { "dia": "Miércoles", "inicio": "10:00", "fin": "12:00", "ubicacion": "3301", "actividad": "Robótica I" },
+      { "dia": "Viernes", "inicio": "08:00", "fin": "10:00", "ubicacion": "9103", "actividad": "Control Automático" },
+      { "dia": "Martes", "inicio": "18:00", "fin": "20:00", "ubicacion": "4202", "actividad": "Sistemas Digitales" },
+      { "dia": "Lunes", "inicio": "16:00", "fin": "18:00", "ubicacion": "10305", "actividad": "Probabilidad y Estadística" }
+    ]
+  },
+  {
+    "id": "celsa_velez",
+    "nombre": "Celsa Guadalupe Sánchez Vélez",
+    "departamento": "Ingeniería",
+    "avatar": "https://res.cloudinary.com/dvt59hfgg/image/upload/v1764825511/4_ljvfhg.png",
+    "ubicacion_actual": "10304",
+    "estado": "en_clase",
+    "horarios": [
+      { "dia": "Lunes", "inicio": "08:00", "fin": "10:00", "ubicacion": "10304", "actividad": "Mecánica de Materiales" },
+      { "dia": "Jueves", "inicio": "16:00", "fin": "18:00", "ubicacion": "3102", "actividad": "Cálculo Integral" },
+      { "dia": "Martes", "inicio": "12:00", "fin": "14:00", "ubicacion": "5102", "actividad": "Cálculo Diferencial" },
+      { "dia": "Viernes", "inicio": "18:00", "fin": "20:00", "ubicacion": "4201", "actividad": "Termodinámica" }
+    ]
+  },
+  {
+    "id": "daisy_rodriguez",
+    "nombre": "Daisy Milena Sorsano Rodríguez",
+    "departamento": "Ingeniería",
+    "avatar": "https://res.cloudinary.com/dvt59hfgg/image/upload/v1764825511/5_bnrl1k.png",
+    "ubicacion_actual": "5101",
+    "estado": "en_clase",
+    "horarios": [
+      { "dia": "Miércoles", "inicio": "08:00", "fin": "10:00", "ubicacion": "5101", "actividad": "Mecánica de Materiales" },
+      { "dia": "Jueves", "inicio": "10:00", "fin": "12:00", "ubicacion": "7203", "actividad": "Robótica I" },
+      { "dia": "Martes", "inicio": "16:00", "fin": "18:00", "ubicacion": "6107", "actividad": "Termodinámica" },
+      { "dia": "Viernes", "inicio": "12:00", "fin": "14:00", "ubicacion": "7101", "actividad": "Probabilidad y Estadística" }
+    ]
+  },
+  {
+    "id": "dora_ruiz",
+    "nombre": "Dora Jéssica Caudillo Ruiz",
+    "departamento": "Ingeniería",
+    "avatar": "https://res.cloudinary.com/dvt59hfgg/image/upload/v1764825510/6_owdktk.png",
+    "ubicacion_actual": "5104",
+    "estado": "en_clase",
+    "horarios": [
+      { "dia": "Martes", "inicio": "20:00", "fin": "22:00", "ubicacion": "5104", "actividad": "Cálculo Integral" },
+      { "dia": "Viernes", "inicio": "18:00", "fin": "20:00", "ubicacion": "7206", "actividad": "Sistemas Digitales" },
+      { "dia": "Jueves", "inicio": "16:00", "fin": "18:00", "ubicacion": "4305", "actividad": "Control Automático" },
+      { "dia": "Lunes", "inicio": "12:00", "fin": "14:00", "ubicacion": "9101", "actividad": "Cálculo Diferencial" }
+    ]
+  },
+  {
+    "id": "edgar_madrid",
+    "nombre": "Edgar Antonio Madrid",
+    "departamento": "Ingeniería",
+    "avatar": "https://res.cloudinary.com/dvt59hfgg/image/upload/v1764825514/7_pxbnqm.png",
+    "ubicacion_actual": "3301",
+    "estado": "en_clase",
+    "horarios": [
+      { "dia": "Miércoles", "inicio": "20:00", "fin": "22:00", "ubicacion": "3301", "actividad": "Física I" },
+      { "dia": "Martes", "inicio": "16:00", "fin": "18:00", "ubicacion": "4306", "actividad": "Control Automático" },
+      { "dia": "Jueves", "inicio": "10:00", "fin": "12:00", "ubicacion": "6106", "actividad": "Termodinámica" },
+      { "dia": "Viernes", "inicio": "12:00", "fin": "14:00", "ubicacion": "9105", "actividad": "Probabilidad y Estadística" }
+    ]
+  },
+  {
+    "id": "eberto_rodriguez",
+    "nombre": "Eberto Javier Peterson Rodríguez",
+    "departamento": "Ingeniería",
+    "avatar": "https://res.cloudinary.com/dvt59hfgg/image/upload/v1764825510/8_s1hz5p.png",
+    "ubicacion_actual": "7204",
+    "estado": "en_clase",
+    "horarios": [
+      { "dia": "Martes", "inicio": "08:00", "fin": "10:00", "ubicacion": "7204", "actividad": "Física I" },
+      { "dia": "Lunes", "inicio": "18:00", "fin": "20:00", "ubicacion": "10304", "actividad": "Programación en Python" },
+      { "dia": "Viernes", "inicio": "10:00", "fin": "12:00", "ubicacion": "5103", "actividad": "Probabilidad y Estadística" },
+      { "dia": "Jueves", "inicio": "12:00", "fin": "14:00", "ubicacion": "3301", "actividad": "Cálculo Diferencial" }
+    ]
+  },
+  {
+    "id": "estela_vela",
+    "nombre": "Estela Galván Vela",
+    "departamento": "Ingeniería",
+    "avatar": "https://res.cloudinary.com/dvt59hfgg/image/upload/v1764825510/9_guw8cr.png",
+    "ubicacion_actual": "7201",
+    "estado": "en_clase",
+    "horarios": [
+      { "dia": "Jueves", "inicio": "08:00", "fin": "10:00", "ubicacion": "7201", "actividad": "Programación en Python" },
+      { "dia": "Miércoles", "inicio": "16:00", "fin": "18:00", "ubicacion": "4306", "actividad": "Robótica I" },
+      { "dia": "Martes", "inicio": "12:00", "fin": "14:00", "ubicacion": "3103", "actividad": "Sistemas Digitales" },
+      { "dia": "Lunes", "inicio": "10:00", "fin": "12:00", "ubicacion": "8101", "actividad": "Probabilidad y Estadística" }
+    ]
+  },
+  {
+    "id": "fabian_sucedo",
+    "nombre": "Fabián Bautista Sucedo",
+    "departamento": "Ingeniería",
+    "avatar": "https://res.cloudinary.com/dvt59hfgg/image/upload/v1764825508/10_petycd.png",
+    "ubicacion_actual": "5104",
+    "estado": "en_clase",
+    "horarios": [
+      { "dia": "Viernes", "inicio": "08:00", "fin": "10:00", "ubicacion": "5104", "actividad": "Programación en Python" },
+      { "dia": "Miércoles", "inicio": "18:00", "fin": "20:00", "ubicacion": "6107", "actividad": "Cálculo Diferencial" },
+      { "dia": "Martes", "inicio": "16:00", "fin": "18:00", "ubicacion": "4301", "actividad": "Cálculo Integral" },
+      { "dia": "Jueves", "inicio": "12:00", "fin": "14:00", "ubicacion": "10304", "actividad": "Termodinámica" }
+    ]
+  },
+  {
+    "id": "fermin_cano",
+    "nombre": "Fermín Alberto Armenta Cano",
+    "departamento": "Ingeniería",
+    "avatar": "https://res.cloudinary.com/dvt59hfgg/image/upload/v1764825508/11_vjhrdz.png",
+    "ubicacion_actual": "7302",
+    "estado": "en_clase",
+    "horarios": [
+      { "dia": "Miércoles", "inicio": "12:00", "fin": "14:00", "ubicacion": "7302", "actividad": "Probabilidad y Estadística" },
+      { "dia": "Lunes", "inicio": "18:00", "fin": "20:00", "ubicacion": "9104", "actividad": "Robótica I" },
+      { "dia": "Jueves", "inicio": "16:00", "fin": "18:00", "ubicacion": "4305", "actividad": "Diseño de Mecanismos" },
+      { "dia": "Martes", "inicio": "10:00", "fin": "12:00", "ubicacion": "8102", "actividad": "Cálculo Diferencial" }
+    ]
+  },
+  {
+    "id": "flavio_varaovia",
+    "nombre": "Flavio Oliveri Varaovia",
+    "departamento": "Ingeniería",
+    "avatar": "https://res.cloudinary.com/dvt59hfgg/image/upload/v1764825508/12_aaohlr.png",
+    "ubicacion_actual": "5102",
+    "estado": "en_clase",
+    "horarios": [
+      { "dia": "Martes", "inicio": "18:00", "fin": "20:00", "ubicacion": "5102", "actividad": "Mecánica de Materiales" },
+      { "dia": "Viernes", "inicio": "12:00", "fin": "14:00", "ubicacion": "4202", "actividad": "Programación en Python" },
+      { "dia": "Lunes", "inicio": "08:00", "fin": "10:00", "ubicacion": "6107", "actividad": "Cálculo Diferencial" },
+      { "dia": "Jueves", "inicio": "16:00", "fin": "18:00", "ubicacion": "10403", "actividad": "Termodinámica" }
+    ]
+  },
+  {
+    "id": "frida_valverde",
+    "nombre": "Frida Giza Valverde",
+    "departamento": "Ingeniería",
+    "avatar": "https://res.cloudinary.com/dvt59hfgg/image/upload/v1764825507/13_agrprx.png",
+    "ubicacion_actual": "3103",
+    "estado": "en_clase",
+    "horarios": [
+      { "dia": "Lunes", "inicio": "16:00", "fin": "18:00", "ubicacion": "3103", "actividad": "Mecánica de Materiales" },
+      { "dia": "Martes", "inicio": "10:00", "fin": "12:00", "ubicacion": "7205", "actividad": "Programación en Python" },
+      { "dia": "Jueves", "inicio": "08:00", "fin": "10:00", "ubicacion": "7102", "actividad": "Cálculo Diferencial" },
+      { "dia": "Viernes", "inicio": "20:00", "fin": "22:00", "ubicacion": "9102", "actividad": "Termodinámica" }
+    ]
+  },
+  {
+    "id": "ignacio_fraire",
+    "nombre": "Ignacio Casas Fraire",
+    "departamento": "Ingeniería",
+    "avatar": "https://res.cloudinary.com/dvt59hfgg/image/upload/v1764825506/14_ev8nha.png",
+    "ubicacion_actual": "10304",
+    "estado": "en_clase",
+    "horarios": [
+      { "dia": "Martes", "inicio": "08:00", "fin": "10:00", "ubicacion": "10304", "actividad": "Física I" },
+      { "dia": "Viernes", "inicio": "12:00", "fin": "14:00", "ubicacion": "7204", "actividad": "Programación en Python" },
+      { "dia": "Miércoles", "inicio": "18:00", "fin": "20:00", "ubicacion": "6106", "actividad": "Probabilidad y Estadística" },
+      { "dia": "Jueves", "inicio": "16:00", "fin": "18:00", "ubicacion": "4301", "actividad": "Termodinámica" }
+    ]
+  },
+  {
+    "id": "ingrid_alonso",
+    "nombre": "Ingrid Curi Alonso",
+    "departamento": "Ingeniería",
+    "avatar": "https://res.cloudinary.com/dvt59hfgg/image/upload/v1764825505/15_sgysdi.png",
+    "ubicacion_actual": "9101",
+    "estado": "en_clase",
+    "horarios": [
+      { "dia": "Miércoles", "inicio": "18:00", "fin": "20:00", "ubicacion": "9101", "actividad": "Mecánica de Materiales" },
+      { "dia": "Jueves", "inicio": "10:00", "fin": "12:00", "ubicacion": "3301", "actividad": "Física I" },
+      { "dia": "Martes", "inicio": "16:00", "fin": "18:00", "ubicacion": "5103", "actividad": "Programación en Python" },
+      { "dia": "Viernes", "inicio": "08:00", "fin": "10:00", "ubicacion": "10305", "actividad": "Probabilidad y Estadística" }
+    ]
+  },
+  {
+    "id": "jaime_garibay",
+    "nombre": "Jaime Eduardo Moncada Garibay",
+    "departamento": "Ingeniería",
+    "avatar": "https://res.cloudinary.com/dvt59hfgg/image/upload/v1764825505/16_xtg3hn.png",
+    "ubicacion_actual": "6106",
+    "estado": "en_clase",
+    "horarios": [
+      { "dia": "Viernes", "inicio": "20:00", "fin": "22:00", "ubicacion": "6106", "actividad": "Cálculo Diferencial" },
+      { "dia": "Lunes", "inicio": "10:00", "fin": "12:00", "ubicacion": "4305", "actividad": "Física I" },
+      { "dia": "Miércoles", "inicio": "16:00", "fin": "18:00", "ubicacion": "3102", "actividad": "Termodinámica" },
+      { "dia": "Jueves", "inicio": "08:00", "fin": "10:00", "ubicacion": "7201", "actividad": "Probabilidad y Estadística" }
+    ]
+  },
+  {
+    "id": "jesus_gonzalez",
+    "nombre": "Jesús Antonio Camacho González",
+    "departamento": "Ingeniería",
+    "avatar": "https://res.cloudinary.com/dvt59hfgg/image/upload/v1764825504/17_bgz10w.png",
+    "ubicacion_actual": "9106",
+    "estado": "en_clase",
+    "horarios": [
+      { "dia": "Lunes", "inicio": "16:00", "fin": "18:00", "ubicacion": "9106", "actividad": "Cálculo Integral" },
+      { "dia": "Martes", "inicio": "10:00", "fin": "12:00", "ubicacion": "7203", "actividad": "Física I" },
+      { "dia": "Miércoles", "inicio": "08:00", "fin": "10:00", "ubicacion": "8101", "actividad": "Mecánica de Materiales" },
+      { "dia": "Jueves", "inicio": "12:00", "fin": "14:00", "ubicacion": "5101", "actividad": "Probabilidad y Estadística" }
+    ]
+  },
+  {
+    "id": "jorge_lopez",
+    "nombre": "Jorge Francisco Sánchez López",
+    "departamento": "Ingeniería",
+    "avatar": "https://res.cloudinary.com/dvt59hfgg/image/upload/v1764825503/18_wureqq.png",
+    "ubicacion_actual": "7205",
+    "estado": "en_clase",
+    "horarios": [
+      { "dia": "Miércoles", "inicio": "18:00", "fin": "20:00", "ubicacion": "7205", "actividad": "Cálculo Diferencial" },
+      { "dia": "Martes", "inicio": "16:00", "fin": "18:00", "ubicacion": "10304", "actividad": "Programación en Python" },
+      { "dia": "Jueves", "inicio": "10:00", "fin": "12:00", "ubicacion": "4301", "actividad": "Mecánica de Materiales" },
+      { "dia": "Viernes", "inicio": "08:00", "fin": "10:00", "ubicacion": "9102", "actividad": "Probabilidad y Estadística" }
+    ]
+  },
+  {
+    "id": "jose_tamayo",
+    "nombre": "José Cristobal Hernández Tamayo",
+    "departamento": "Ingeniería",
+    "avatar": "https://res.cloudinary.com/dvt59hfgg/image/upload/v1764825502/19_uy1pmj.png",
+    "ubicacion_actual": "4301",
+    "estado": "en_clase",
+    "horarios": [
+      { "dia": "Martes", "inicio": "20:00", "fin": "22:00", "ubicacion": "4301", "actividad": "Cálculo Diferencial" },
+      { "dia": "Viernes", "inicio": "16:00", "fin": "18:00", "ubicacion": "5104", "actividad": "Programación en Python" },
+      { "dia": "Lunes", "inicio": "12:00", "fin": "14:00", "ubicacion": "7101", "actividad": "Mecánica de Materiales" },
+      { "dia": "Miércoles", "inicio": "10:00", "fin": "12:00", "ubicacion": "3301", "actividad": "Probabilidad y Estadística" }
+    ]
+  },
+  {
+    "id": "jose_esquivel",
+    "nombre": "José Luis Bonilla Esquivel",
+    "departamento": "Ingeniería",
+    "avatar": "https://res.cloudinary.com/dvt59hfgg/image/upload/v1764825502/20_iwbmu2.jpg",
+    "ubicacion_actual": "9103",
+    "estado": "en_clase",
+    "horarios": [
+      { "dia": "Viernes", "inicio": "18:00", "fin": "20:00", "ubicacion": "9103", "actividad": "Cálculo Diferencial" },
+      { "dia": "Martes", "inicio": "08:00", "fin": "10:00", "ubicacion": "10305", "actividad": "Física I" },
+      { "dia": "Lunes", "inicio": "16:00", "fin": "18:00", "ubicacion": "7204", "actividad": "Mecánica de Materiales" },
+      { "dia": "Jueves", "inicio": "12:00", "fin": "14:00", "ubicacion": "6107", "actividad": "Probabilidad y Estadística" }
+    ]
+  },
+  {
+    "id": "jose_espinoza",
+    "nombre": "José Luis Espinoza",
+    "departamento": "Ingeniería",
+    "avatar": "https://res.cloudinary.com/dvt59hfgg/image/upload/v1764825501/21_x2q6go.png",
+    "ubicacion_actual": "7206",
+    "estado": "en_clase",
+    "horarios": [
+      { "dia": "Jueves", "inicio": "10:00", "fin": "12:00", "ubicacion": "7206", "actividad": "Cálculo Diferencial" },
+      { "dia": "Martes", "inicio": "12:00", "fin": "14:00", "ubicacion": "5102", "actividad": "Programación en Python" },
+      { "dia": "Viernes", "inicio": "08:00", "fin": "10:00", "ubicacion": "4306", "actividad": "Física I" },
+      { "dia": "Lunes", "inicio": "16:00", "fin": "18:00", "ubicacion": "8103", "actividad": "Probabilidad y Estadística" }
+    ]
+  },
+  {
+    "id": "karina_elisalve",
+    "nombre": "Karina Parra Elisalve",
+    "departamento": "Ingeniería",
+    "avatar": "https://res.cloudinary.com/dvt59hfgg/image/upload/v1764825501/22_zjubwt.png",
+    "ubicacion_actual": "5103",
+    "estado": "en_clase",
+    "horarios": [
+      { "dia": "Viernes", "inicio": "16:00", "fin": "18:00", "ubicacion": "5103", "actividad": "Mecánica de Materiales" },
+      { "dia": "Miércoles", "inicio": "08:00", "fin": "10:00", "ubicacion": "7201", "actividad": "Cálculo Diferencial" },
+      { "dia": "Martes", "inicio": "20:00", "fin": "22:00", "ubicacion": "6106", "actividad": "Física I" },
+      { "dia": "Lunes", "inicio": "10:00", "fin": "12:00", "ubicacion": "9105", "actividad": "Probabilidad y Estadística" }
+    ]
+  },
+  {
+    "id": "kenia_espinoza",
+    "nombre": "Kenia Picos Espinoza",
+    "departamento": "Ingeniería",
+    "avatar": "https://res.cloudinary.com/dvt59hfgg/image/upload/v1764825500/23_pjkto4.png",
+    "ubicacion_actual": "4202",
+    "estado": "en_clase",
+    "horarios": [
+      { "dia": "Lunes", "inicio": "12:00", "fin": "14:00", "ubicacion": "4202", "actividad": "Mecánica de Materiales" },
+      { "dia": "Martes", "inicio": "16:00", "fin": "18:00", "ubicacion": "3301", "actividad": "Cálculo Diferencial" },
+      { "dia": "Jueves", "inicio": "08:00", "fin": "10:00", "ubicacion": "10304", "actividad": "Programación en Python" },
+      { "dia": "Viernes", "inicio": "18:00", "fin": "20:00", "ubicacion": "8102", "actividad": "Probabilidad y Estadística" }
+    ]
+  },
+  {
+    "id": "liliana_pulido",
+    "nombre": "Liliana Angulo Pulido",
+    "departamento": "Ingeniería",
+    "avatar": "https://res.cloudinary.com/dvt59hfgg/image/upload/v1764825500/24_wdpqlw.png",
+    "ubicacion_actual": "4202",
+    "estado": "en_clase",
+    "horarios": [
+      { "dia": "Martes", "inicio": "08:00", "fin": "10:00", "ubicacion": "4202", "actividad": "Programación en Python" },
+      { "dia": "Lunes", "inicio": "10:00", "fin": "12:00", "ubicacion": "5101", "actividad": "Física I" },
+      { "dia": "Jueves", "inicio": "16:00", "fin": "18:00", "ubicacion": "7203", "actividad": "Cálculo Diferencial" },
+      { "dia": "Viernes", "inicio": "12:00", "fin": "14:00", "ubicacion": "7204", "actividad": "Probabilidad y Estadística" }
+    ]
+  },
+  {
+    "id": "lorena_serrano",
+    "nombre": "Lorena Santana Serrano",
+    "departamento": "Ingeniería",
+    "avatar": "https://res.cloudinary.com/dvt59hfgg/image/upload/v1764825498/25_nckjbo.jpg",
+    "ubicacion_actual": "10305",
+    "estado": "en_clase",
+    "horarios": [
+      { "dia": "Jueves", "inicio": "08:00", "fin": "10:00", "ubicacion": "10305", "actividad": "Física I" },
+      { "dia": "Lunes", "inicio": "18:00", "fin": "20:00", "ubicacion": "7102", "actividad": "Programación en Python" },
+      { "dia": "Martes", "inicio": "12:00", "fin": "14:00", "ubicacion": "4306", "actividad": "Cálculo Diferencial" },
+      { "dia": "Viernes", "inicio": "16:00", "fin": "18:00", "ubicacion": "9104", "actividad": "Probabilidad y Estadística" }
+    ]
+  },
+  {
+    "id": "luis_sandoval",
+    "nombre": "Luis Sandoval",
+    "departamento": "Ingeniería",
+    "avatar": "https://res.cloudinary.com/dvt59hfgg/image/upload/v1764825498/26_d8lymw.png",
+    "ubicacion_actual": "6107",
+    "estado": "en_clase",
+    "horarios": [
+      { "dia": "Miércoles", "inicio": "18:00", "fin": "20:00", "ubicacion": "6107", "actividad": "Programación en Python" },
+      { "dia": "Martes", "inicio": "16:00", "fin": "18:00", "ubicacion": "7201", "actividad": "Cálculo Diferencial" },
+      { "dia": "Lunes", "inicio": "10:00", "fin": "12:00", "ubicacion": "5102", "actividad": "Física I" },
+      { "dia": "Jueves", "inicio": "12:00", "fin": "14:00", "ubicacion": "9101", "actividad": "Probabilidad y Estadística" }
+    ]
+  },
+  {
+    "id": "maricela_quiroz",
+    "nombre": "Maricela Martínez Quiroz",
+    "departamento": "Ingeniería",
+    "avatar": "https://res.cloudinary.com/dvt59hfgg/image/upload/v1764825497/27_sljleg.png",
+    "ubicacion_actual": "8102",
+    "estado": "en_clase",
+    "horarios": [
+      { "dia": "Miércoles", "inicio": "08:00", "fin": "10:00", "ubicacion": "8102", "actividad": "Programación en Python" },
+      { "dia": "Lunes", "inicio": "12:00", "fin": "14:00", "ubicacion": "7205", "actividad": "Física I" },
+      { "dia": "Jueves", "inicio": "16:00", "fin": "18:00", "ubicacion": "4305", "actividad": "Cálculo Diferencial" },
+      { "dia": "Viernes", "inicio": "10:00", "fin": "12:00", "ubicacion": "3102", "actividad": "Probabilidad y Estadística" }
+    ]
+  },
+  {
+    "id": "maria_grijalva",
+    "nombre": "María del Socorro Encinas Grijalva",
+    "departamento": "Ingeniería",
+    "avatar": "https://res.cloudinary.com/dvt59hfgg/image/upload/v1764825497/28_m2lyqw.png",
+    "ubicacion_actual": "8103",
+    "estado": "en_clase",
+    "horarios": [
+      { "dia": "Jueves", "inicio": "20:00", "fin": "22:00", "ubicacion": "8103", "actividad": "Programación en Python" },
+      { "dia": "Miércoles", "inicio": "12:00", "fin": "14:00", "ubicacion": "4306", "actividad": "Cálculo Diferencial" },
+      { "dia": "Lunes", "inicio": "18:00", "fin": "20:00", "ubicacion": "5103", "actividad": "Física I" },
+      { "dia": "Viernes", "inicio": "08:00", "fin": "10:00", "ubicacion": "7203", "actividad": "Probabilidad y Estadística" }
+    ]
+  },
+  {
+    "id": "marlon_joaquin",
+    "nombre": "Marlon César González Joaquín",
+    "departamento": "Ingeniería",
+    "avatar": "https://res.cloudinary.com/dvt59hfgg/image/upload/v1764825494/29_n9pe5h.png",
+    "ubicacion_actual": "5101",
+    "estado": "en_clase",
+    "horarios": [
+      { "dia": "Viernes", "inicio": "12:00", "fin": "14:00", "ubicacion": "5101", "actividad": "Programación en Python" },
+      { "dia": "Lunes", "inicio": "10:00", "fin": "12:00", "ubicacion": "10304", "actividad": "Cálculo Diferencial" },
+      { "dia": "Miércoles", "inicio": "16:00", "fin": "18:00", "ubicacion": "4201", "actividad": "Física I" },
+      { "dia": "Jueves", "inicio": "08:00", "fin": "10:00", "ubicacion": "6107", "actividad": "Probabilidad y Estadística" }
+    ]
+  },
+  {
+    "id": "mauricio_manvera",
+    "nombre": "Mauricio Odre Manvera",
+    "departamento": "Ingeniería",
+    "avatar": "https://res.cloudinary.com/dvt59hfgg/image/upload/v1764825494/30_cjfqtk.png",
+    "ubicacion_actual": "4305",
+    "estado": "en_clase",
+    "horarios": [
+      { "dia": "Martes", "inicio": "18:00", "fin": "20:00", "ubicacion": "4305", "actividad": "Programación en Python" },
+      { "dia": "Miércoles", "inicio": "12:00", "fin": "14:00", "ubicacion": "7206", "actividad": "Cálculo Diferencial" },
+      { "dia": "Lunes", "inicio": "16:00", "fin": "18:00", "ubicacion": "6106", "actividad": "Física I" },
+      { "dia": "Jueves", "inicio": "10:00", "fin": "12:00", "ubicacion": "9102", "actividad": "Probabilidad y Estadística" }
+    ]
+  },
+  {
+    "id": "moises_adame",
+    "nombre": "Moisés Sánchez Adame",
+    "departamento": "Ingeniería",
+    "avatar": "https://res.cloudinary.com/dvt59hfgg/image/upload/v1764825494/31_ufdccd.png",
+    "ubicacion_actual": "4302",
+    "estado": "en_clase",
+    "horarios": [
+      { "dia": "Lunes", "inicio": "08:00", "fin": "10:00", "ubicacion": "4302", "actividad": "Cálculo Diferencial" },
+      { "dia": "Miércoles", "inicio": "16:00", "fin": "18:00", "ubicacion": "7204", "actividad": "Mecánica de Materiales" },
+      { "dia": "Martes", "inicio": "12:00", "fin": "14:00", "ubicacion": "10305", "actividad": "Programación en Python" },
+      { "dia": "Viernes", "inicio": "20:00", "fin": "22:00", "ubicacion": "5101", "actividad": "Probabilidad y Estadística" }
+    ]
+  },
+  {
+    "id": "natalie_medina",
+    "nombre": "Natalie Medina Rodríguez",
+    "departamento": "Ingeniería",
+    "avatar": "https://res.cloudinary.com/dvt59hfgg/image/upload/v1764825494/32_qfjyri.jpg",
+    "ubicacion_actual": "7203",
+    "estado": "en_clase",
+    "horarios": [
+      { "dia": "Miércoles", "inicio": "12:00", "fin": "14:00", "ubicacion": "7203", "actividad": "Programación en Python" },
+      { "dia": "Jueves", "inicio": "16:00", "fin": "18:00", "ubicacion": "3102", "actividad": "Física I" },
+      { "dia": "Martes", "inicio": "20:00", "fin": "22:00", "ubicacion": "6107", "actividad": "Cálculo Diferencial" },
+      { "dia": "Viernes", "inicio": "08:00", "fin": "10:00", "ubicacion": "10304", "actividad": "Probabilidad y Estadística" }
+    ]
+  },
+  {
+    "id": "nivaldo_cuba",
+    "nombre": "Nivaldo Santos Cuba",
+    "departamento": "Ingeniería",
+    "avatar": "https://res.cloudinary.com/dvt59hfgg/image/upload/v1764825494/33_wvjaoq.png",
+    "ubicacion_actual": "4301",
+    "estado": "en_clase",
+    "horarios": [
+      { "dia": "Viernes", "inicio": "12:00", "fin": "14:00", "ubicacion": "4301", "actividad": "Cálculo Diferencial" },
+      { "dia": "Lunes", "inicio": "10:00", "fin": "12:00", "ubicacion": "7102", "actividad": "Programación en Python" },
+      { "dia": "Jueves", "inicio": "08:00", "fin": "10:00", "ubicacion": "6106", "actividad": "Probabilidad y Estadística" },
+      { "dia": "Miércoles", "inicio": "16:00", "fin": "18:00", "ubicacion": "3301", "actividad": "Física I" }
+    ]
+  },
+  {
+    "id": "pablo_entenza",
+    "nombre": "Pablo José Prieto Entenza",
+    "departamento": "Ingeniería",
+    "avatar": "https://res.cloudinary.com/dvt59hfgg/image/upload/v1764825493/34_hj06hn.png",
+    "ubicacion_actual": "7206",
+    "estado": "en_clase",
+    "horarios": [
+      { "dia": "Jueves", "inicio": "10:00", "fin": "12:00", "ubicacion": "7206", "actividad": "Mecánica de Materiales" },
+      { "dia": "Miércoles", "inicio": "12:00", "fin": "14:00", "ubicacion": "9101", "actividad": "Física I" },
+      { "dia": "Lunes", "inicio": "16:00", "fin": "18:00", "ubicacion": "10305", "actividad": "Cálculo Diferencial" },
+      { "dia": "Martes", "inicio": "08:00", "fin": "10:00", "ubicacion": "7203", "actividad": "Probabilidad y Estadística" }
+    ]
+  },
+  {
+    "id": "roberto_corrales",
+    "nombre": "Roberto Salas Corrales",
+    "departamento": "Ingeniería",
+    "avatar": "https://res.cloudinary.com/dvt59hfgg/image/upload/v1764825493/35_w1wqaq.png",
+    "ubicacion_actual": "7204",
+    "estado": "en_clase",
+    "horarios": [
+      { "dia": "Martes", "inicio": "16:00", "fin": "18:00", "ubicacion": "7204", "actividad": "Termodinámica" },
+      { "dia": "Lunes", "inicio": "08:00", "fin": "10:00", "ubicacion": "6107", "actividad": "Probabilidad y Estadística" },
+      { "dia": "Miércoles", "inicio": "20:00", "fin": "22:00", "ubicacion": "4306", "actividad": "Física I" },
+      { "dia": "Viernes", "inicio": "12:00", "fin": "14:00", "ubicacion": "10304", "actividad": "Cálculo Diferencial" }
+    ]
+  },
+  {
+    "id": "miguel_lara",
+    "nombre": "Miguel Ángel Lara Ceballos",
+    "departamento": "Ingeniería",
+    "avatar": "https://res.cloudinary.com/dvt59hfgg/image/upload/v1764827534/MIGUELL_yempd2.jpg",
+    "ubicacion_actual": "Laboratorio de Mecatrónica",
+    "estado": "en_clase",
+    "horarios": [
+      { "dia": "Lunes", "inicio": "18:00", "fin": "20:00", "ubicacion": "10306", "actividad": "Automatización Industrial 7K" },
+      { "dia": "Miércoles", "inicio": "18:00", "fin": "20:00", "ubicacion": "4306", "actividad": "Automatización Industrial 7K" },
+      { "dia": "Jueves", "inicio": "20:00", "fin": "22:00", "ubicacion": "Laboratorio de Mecatrónica", "actividad": "Automatización Industrial 7K" },
+      { "dia": "Lunes", "inicio": "20:00", "fin": "22:00", "ubicacion": "10402", "actividad": "Automatización Industrial K7" },
+      { "dia": "Miércoles", "inicio": "20:00", "fin": "22:00", "ubicacion": "4302", "actividad": "Automatización Industrial K7" },
+      { "dia": "Jueves", "inicio": "18:00", "fin": "20:00", "ubicacion": "Laboratorio de Mecatrónica", "actividad": "Automatización Industrial K7" }
     ]
   }
 ]

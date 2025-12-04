@@ -18,47 +18,7 @@ const STATUS_MAP = {
   laboratorio: { label: 'En laboratorio', style: 'from-blue-500/80 to-indigo-500/70 text-white' }
 };
 
-const fallbackData = [
-  {
-    id: 'juan_ramirez',
-    nombre: 'Dr. Juan Ramírez',
-    departamento: 'Física',
-    avatar: 'https://res.cloudinary.com/dxfq3iotg/image/upload/v1700000001/cetys/juan_ramirez.png',
-    ubicacion_actual: 'Aula A-203',
-    estado: 'en_clase',
-    horarios: [
-      { dia: 'Lunes', inicio: '08:00', fin: '09:30', ubicacion: 'A-203', actividad: 'Física I' },
-      { dia: 'Lunes', inicio: '10:00', fin: '11:00', ubicacion: 'D-12', actividad: 'Asesorías' },
-      { dia: 'Miércoles', inicio: '09:00', fin: '11:00', ubicacion: 'Lab. Óptica', actividad: 'Laboratorio de Óptica' }
-    ]
-  },
-  {
-    id: 'sofia_beltran',
-    nombre: 'Mtra. Sofía Beltrán',
-    departamento: 'Diseño',
-    avatar: 'https://res.cloudinary.com/dxfq3iotg/image/upload/v1700000001/cetys/sofia_beltran.png',
-    ubicacion_actual: 'Studio C',
-    estado: 'asesoria',
-    horarios: [
-      { dia: 'Lunes', inicio: '11:00', fin: '12:30', ubicacion: 'Studio C', actividad: 'Taller de Diseño UX' },
-      { dia: 'Miércoles', inicio: '13:00', fin: '15:00', ubicacion: 'Studio A', actividad: 'Proyecto Integrador' },
-      { dia: 'Jueves', inicio: '09:00', fin: '10:30', ubicacion: 'B-10', actividad: 'Mentorías de portafolio' }
-    ]
-  },
-  {
-    id: 'luis_montiel',
-    nombre: 'Ing. Luis Montiel',
-    departamento: 'Robótica',
-    avatar: 'https://res.cloudinary.com/dxfq3iotg/image/upload/v1700000001/cetys/luis_montiel.png',
-    ubicacion_actual: 'Lab. Innovación',
-    estado: 'disponible',
-    horarios: [
-      { dia: 'Martes', inicio: '08:00', fin: '10:00', ubicacion: 'Lab. Innovación', actividad: 'Robótica I' },
-      { dia: 'Jueves', inicio: '11:00', fin: '13:00', ubicacion: 'Lab. Innovación', actividad: 'Práctica de IA' },
-      { dia: 'Viernes', inicio: '09:00', fin: '11:00', ubicacion: 'C-05', actividad: 'Asesorías' }
-    ]
-  }
-];
+const fallbackData = [];
 
 const resolveStatus = (estado, actividad = '') => {
   const key = estado?.toLowerCase();

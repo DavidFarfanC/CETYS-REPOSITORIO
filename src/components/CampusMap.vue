@@ -330,6 +330,8 @@ const activeLocations = computed(() => {
   professors.value.forEach((prof) => {
     if (prof.actual?.ubicacion) {
       set.add(prof.actual.ubicacion.toLowerCase());
+    } else if (prof.ubicacionActual) {
+      set.add(prof.ubicacionActual.toLowerCase());
     }
   });
   return set;
@@ -400,14 +402,19 @@ const selectedAreaProfessors = computed(() => {
     .map((prof) => {
       const currentLocation = prof.actual?.ubicacion?.toLowerCase();
       const nextLocation = prof.siguiente?.ubicacion?.toLowerCase();
-      const matchesCurrent = currentLocation ? aliases.some((alias) => currentLocation.includes(alias)) : false;
+      const currentFallback = prof.ubicacionActual?.toLowerCase();
+      const matchesCurrent = currentLocation
+        ? aliases.some((alias) => currentLocation.includes(alias))
+        : currentFallback
+          ? aliases.some((alias) => currentFallback.includes(alias))
+          : false;
       const matchesNext = !matchesCurrent && nextLocation ? aliases.some((alias) => nextLocation.includes(alias)) : false;
 
       if (!matchesCurrent && !matchesNext) {
         return null;
       }
 
-      const block = matchesCurrent ? prof.actual : prof.siguiente;
+      const block = matchesCurrent ? prof.actual ?? { actividad: 'Ubicación actual', ubicacion: prof.ubicacionActual } : prof.siguiente;
 
       return {
         id: prof.id,
