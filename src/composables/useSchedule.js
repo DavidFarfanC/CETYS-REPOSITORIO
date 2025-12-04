@@ -4,8 +4,7 @@ import customParseFormat from 'dayjs/plugin/customParseFormat';
 import isBetween from 'dayjs/plugin/isBetween';
 import localizedFormat from 'dayjs/plugin/localizedFormat';
 import 'dayjs/locale/es';
-import { collection, onSnapshot } from 'firebase/firestore';
-import { firestore } from '@/services/firebase';
+import { fetchProfessors } from '@/services/api';
 import fallbackData from '@/assets/data/professors.json';
 
 dayjs.extend(customParseFormat);
@@ -34,20 +33,15 @@ const resolveStatus = (actividad = '') => {
 };
 
 const professors = ref([]);
-const sourceData = ref([]);
 const loading = ref(true);
 const error = ref(null);
 const lastUpdated = ref(null);
 const now = ref(dayjs());
-let stopRealtimeListener;
-let timer;
 let bootstrapped = false;
 
 const normaliseDay = (value) => value.toLowerCase();
 
 const evaluateState = (rawProfessors) => {
-  sourceData.value = rawProfessors;
-
   const today = now.value.format('YYYY-MM-DD');
   const currentDay = normaliseDay(now.value.format('dddd'));
 
@@ -91,33 +85,17 @@ const evaluateState = (rawProfessors) => {
   lastUpdated.value = dayjs();
 };
 
-const startRealtime = () => {
-  if (stopRealtimeListener) {
-    return;
-  }
+const loadProfessors = async () => {
+  loading.value = true;
+  error.value = null;
   try {
-    const profesoresCollection = collection(firestore, 'profesores');
-    stopRealtimeListener = onSnapshot(
-      profesoresCollection,
-      (snapshot) => {
-        const payload = snapshot.docs.map((doc) => ({
-          id: doc.id,
-          ...doc.data()
-        }));
-        evaluateState(payload.length ? payload : fallbackData);
-        loading.value = false;
-      },
-      (err) => {
-        console.warn('Fallo la sincronización con Firestore, usando datos de ejemplo.', err);
-        error.value = err;
-        evaluateState(fallbackData);
-        loading.value = false;
-      }
-    );
+    const payload = await fetchProfessors();
+    evaluateState(Array.isArray(payload) && payload.length ? payload : fallbackData);
   } catch (err) {
-    console.warn('No fue posible iniciar Firestore, usando datos de ejemplo.', err);
+    console.warn('Fallo la consulta al API, usando datos de ejemplo.', err);
     error.value = err;
     evaluateState(fallbackData);
+  } finally {
     loading.value = false;
   }
 };
@@ -127,18 +105,12 @@ const bootstrap = () => {
     return;
   }
   bootstrapped = true;
-  startRealtime();
-  timer = window.setInterval(() => {
-    now.value = dayjs();
-    const baseline = sourceData.value.length ? sourceData.value : fallbackData;
-    evaluateState(baseline);
-  }, 60_000);
+  loadProfessors();
 };
 
 const refreshNow = () => {
-  const baseline = sourceData.value.length ? sourceData.value : fallbackData;
   now.value = dayjs();
-  evaluateState(baseline);
+  return loadProfessors();
 };
 
 const activeCount = computed(() => professors.value.filter((prof) => prof.actual).length);
