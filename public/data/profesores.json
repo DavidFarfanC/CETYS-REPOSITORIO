@@ -504,6 +504,7 @@
       { "dia": "Jueves", "inicio": "20:00", "fin": "22:00", "ubicacion": "Laboratorio de Mecatrónica", "actividad": "Automatización Industrial 7K" },
       { "dia": "Lunes", "inicio": "20:00", "fin": "22:00", "ubicacion": "10402", "actividad": "Automatización Industrial K7" },
       { "dia": "Miércoles", "inicio": "20:00", "fin": "22:00", "ubicacion": "4302", "actividad": "Automatización Industrial K7" },
+      { "dia": "Jueves", "inicio": "12:00", "fin": "20:00", "ubicacion": "4302", "actividad": "TEST Automatización Industrial K7" },
       { "dia": "Jueves", "inicio": "18:00", "fin": "20:00", "ubicacion": "Laboratorio de Mecatrónica", "actividad": "Automatización Industrial K7" }
     ]
   }
