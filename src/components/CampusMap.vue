@@ -201,7 +201,7 @@ const props = defineProps({
   }
 });
 
-const mapImagePath = '/campus-map.jpg';
+const mapImagePath = 'https://res.cloudinary.com/dvt59hfgg/image/upload/v1764879974/MAPA_B_uqpmyy.jpg';
 const fallbackSvg = `
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 640">
     <defs>
@@ -243,104 +243,114 @@ const professors = computed(() =>
 
 const campusAreasData = [
   {
-    id: 'edificio-aulas',
-    label: 'Edificio de Aulas',
-    shorthand: '1',
-    type: 'Aulas',
-    description: 'Núcleo de salones para licenciaturas y tronco común. Incluye aulas A-200 y A-300.',
-    position: { top: 60, left: 52 },
-    color: '#FFC600',
-    aliases: ['A-203', 'A-20', 'Aulas 200', 'Aulas 300', 'Salón A-', 'Edificio de Aulas']
+    id: "ed5",
+    label: "Edificio 5",
+    shorthand: "5",
+    type: "Aulas",
+    description: "Edificio de salones con clave 5***.",
+    position: { top: 46, left: 13.2 },
+    color: "#facc15",
+    aliases: ["5", "5*", "50", "51", "52", "53", "54", "Salón 5", "Edificio 5"]
   },
   {
-    id: 'edificio-d',
-    label: 'Edificio de Oficinas D',
-    shorthand: 'D',
-    type: 'Oficinas',
-    description: 'Direcciones académicas, asesorías y oficinas administrativas del campus.',
-    position: { top: 47, left: 67 },
-    color: '#f97316',
-    aliases: ['Oficina D', 'D-', 'Dirección Académica', 'Oficinas D']
+    id: "admi",
+    label: "Administración",
+    shorthand: "ADM",
+    type: "Servicios",
+    description: "Edificio administrativo del campus.",
+    position: { top: 73, left: 19.9 },
+    color: "#ea71e8ff",
+    aliases: ["ADM", "Administración", "Oficinas"]
   },
   {
-    id: 'studio-creativo',
-    label: 'Estudios de Diseño y Comunicación',
-    shorthand: 'C',
-    type: 'Aulas',
-    description: 'Salas tipo estudio para Diseño Gráfico, Animación Digital y medios audiovisuales.',
-    position: { top: 68, left: 33 },
-    color: '#ec4899',
-    aliases: ['Studio C', 'Estudio C', 'Sala Creativa', 'Diseño']
+    id: "ed8",
+    label: "Edificio 8",
+    shorthand: "8",
+    type: "Aulas",
+    description: "Edificio de salones con clave 8***.",
+    position: { top: 8.3, left: 62 },
+    color: "#f87171",
+    aliases: ["8", "8*", "80", "81", "Salón 8", "Edificio 8"]
   },
   {
-    id: 'laboratorios-ingenieria',
-    label: 'CINAP · Laboratorios de Ingeniería',
-    shorthand: '5',
-    type: 'Laboratorios',
-    description: 'Laboratorios de física, óptica, robótica e innovación tecnológica.',
-    position: { top: 42, left: 45 },
-    color: '#3b82f6',
-    aliases: ['CINAP', 'Lab. Óptica', 'Laboratorio de Óptica', 'Lab. Innovación', 'Laboratorio', 'Ing.']
+    id: "posg",
+    label: "Posgrados",
+    shorthand: "POSG",
+    type: "Aulas",
+    description: "Edificio de posgrados (salones 7***).",
+    position: { top: 20, left: 81 },
+    color: "#fb923c",
+    aliases: ["7", "7*", "70", "71", "POSG", "Posgrados", "Edificio 7"]
   },
   {
-    id: 'laboratorio-robotica',
-    label: 'Laboratorio de Innovación & Robótica',
-    shorthand: 'R',
-    type: 'Laboratorios',
-    description: 'Espacio para prácticas de robótica aplicada, IA y prototipado de ingeniería.',
-    position: { top: 54, left: 41 },
-    color: '#22d3ee',
-    aliases: ['Lab. Innovación', 'Robótica', 'Laboratorio de IA', 'Lab Innovacion']
+    id: "cece",
+    label: "CECE",
+    shorthand: "10",
+    type: "Aulas",
+    description: "Centro de Excelencia y Competitividad Empresarial (salones 10***).",
+    position: { top: 53, left: 81.23 },
+    color: "#60a5fa",
+    aliases: ["10", "10*", "103", "CECE", "Edificio 10"]
   },
   {
-    id: 'centro-asistencia',
-    label: 'Centro de Asesoría · CAL',
-    shorthand: 'CAL',
-    type: 'Centros de atención',
-    description: 'Centro de asesoría estudiantil y orientación psicopedagógica.',
-    position: { top: 72, left: 59 },
-    color: '#8b5cf6',
-    aliases: ['CAL', 'Centro de Asesoría', 'Asesoría', 'Centro de Atención']
+    id: "e4",
+    label: "Edificio 4",
+    shorthand: "4",
+    type: "Aulas",
+    description: "Edificio de salones con clave 4***.",
+    position: { top: 66, left: 74 },
+    color: "#c084fc",
+    aliases: ["4", "4*", "40", "41", "Edificio 4", "E4"]
   },
   {
-    id: 'biblioteca',
-    label: 'Centro de Información “Luis Fimbres Moreno”',
-    shorthand: 'BIB',
-    type: 'Centros de atención',
-    description: 'Biblioteca, salas de estudio y recursos digitales para investigación académica.',
-    position: { top: 78, left: 46 },
-    color: '#0ea5e9',
-    aliases: ['Biblioteca', 'Centro de Información', 'Luis Fimbres', 'Sala de Lectura']
+    id: "lab",
+    label: "Laboratorio de Ingeniería",
+    shorthand: "LAB",
+    type: "Laboratorios",
+    description: "Laboratorios de ingeniería (salones 6***).",
+    position: { top: 66, left: 85.3 },
+    color: "#22d3ee",
+    aliases: ["6", "6*", "60", "61", "LAB", "Laboratorio", "Edificio 6"]
   },
   {
-    id: 'estadio',
-    label: 'Estadio “Margarita Astiazarán de Fimbres”',
-    shorthand: 'EST',
-    type: 'Áreas comunes',
-    description: 'Estadio, pista de atletismo y canchas para torneos representativos del campus.',
-    position: { top: 18, left: 66 },
-    color: '#1D1D1B',
-    aliases: ['Estadio', 'Cancha', 'Pista', 'Campo deportivos']
+    id: "ed3",
+    label: "Edificio 3",
+    shorthand: "3",
+    type: "Aulas",
+    description: "Edificio de salones con clave 3***.",
+    position: { top: 87, left: 82 },
+    color: "#fde047",
+    aliases: ["3", "3*", "30", "31", "Edificio 3"]
   },
   {
-    id: 'cafeteria',
-    label: 'Cafetería Central & Food Court',
-    shorthand: 'CAF',
-    type: 'Servicios',
-    description: 'Opciones de alimentos, café y snacks. Punto de encuentro estudiantil.',
-    position: { top: 84, left: 53 },
-    color: '#16a34a',
-    aliases: ['Cafetería', 'Café', 'Food Court', 'Comedor']
+    id: "cafe",
+    label: "Cafetería Central",
+    shorthand: "CAF",
+    type: "Servicios",
+    description: "Zona comercial y de alimentos.",
+    position: { top: 42, left: 43 },
+    color: "#0bc236ff",
+    aliases: ["CAF", "Cafetería", "CAFE", "Food Court", "Comedor"]
   },
   {
-    id: 'estacionamiento-principal',
-    label: 'Estacionamiento Principal',
-    shorthand: 'P',
-    type: 'Servicios',
-    description: 'Acceso principal vehicular, registro de visitantes y zonas de pick-up.',
-    position: { top: 82, left: 76 },
-    color: '#64748b',
-    aliases: ['Estacionamiento', 'Parking', 'Acceso principal']
+    id: "biblio",
+    label: "Biblioteca",
+    shorthand: "BIB",
+    type: "Servicios",
+    description: "Centro de información y salas de estudio.",
+    position: { top: 48, left: 60.5 },
+    color: "#f28d3aff",
+    aliases: ["BIB", "Biblioteca", "Centro de Información", "Biblio"]
+  },
+  {
+    id: "ed9",
+    label: "Edificio 9",
+    shorthand: "9",
+    type: "Aulas",
+    description: "Edificio de salones y espacios amplios (9***).",
+    position: { top: 82, left: 45 },
+    color: "#fde047",
+    aliases: ["9", "9*", "90", "91", "Edificio 9"]
   }
 ];
 
@@ -585,3 +595,4 @@ const imageSource = computed(() => (hasImageError.value ? fallbackImage : mapIma
   transform: scale(0.8);
 }
 </style>
+//tiamo 
