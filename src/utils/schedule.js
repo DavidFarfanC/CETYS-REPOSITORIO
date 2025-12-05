@@ -57,23 +57,6 @@ export const computeSlots = (horarios = [], now = getNow()) => {
 
 export const computeStates = (profesores = [], now = getNow()) =>
   profesores.map((prof) => {
-
-
-
-    // EXCEPCIÓN opcional: Miguel Lara
-    if (prof.id === 'miguel_lara') {
-      return {
-        ...prof,
-        estadoKey: 'fuera_de_clase',
-        estado: 'Fuera de clase',
-        estadoStyle: STATUS_MAP.fuera_de_clase.style,
-        ubicacionActual: prof.ubicacion_actual ?? '',
-        actual: null,
-        siguiente: null
-      };
-    }
-
-
     const { currentSlot, nextSlot } = computeSlots(prof.horarios, now);
     const isActive = Boolean(currentSlot);
     const estadoKey = isActive ? 'en_clase' : 'fuera_de_clase';
