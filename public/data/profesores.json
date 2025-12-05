@@ -319,7 +319,7 @@
     "horarios": [
       { "dia": "Lunes", "inicio": "12:00", "fin": "14:00", "ubicacion": "4202", "actividad": "Mecánica de Materiales" },
       { "dia": "Martes", "inicio": "16:00", "fin": "18:00", "ubicacion": "3301", "actividad": "Cálculo Diferencial" },
-      { "dia": "Jueves", "inicio": "08:00", "fin": "10:00", "ubicacion": "10304", "actividad": "Programación en Python" },
+      { "dia": "Jueves", "inicio": "08:00", "fin": "22:00", "ubicacion": "10304", "actividad": "Programación en Python" },
       { "dia": "Viernes", "inicio": "18:00", "fin": "20:00", "ubicacion": "8102", "actividad": "Probabilidad y Estadística" }
     ]
   },
@@ -404,7 +404,7 @@
       { "dia": "Viernes", "inicio": "12:00", "fin": "14:00", "ubicacion": "5101", "actividad": "Programación en Python" },
       { "dia": "Lunes", "inicio": "10:00", "fin": "12:00", "ubicacion": "10304", "actividad": "Cálculo Diferencial" },
       { "dia": "Miércoles", "inicio": "16:00", "fin": "18:00", "ubicacion": "4201", "actividad": "Física I" },
-      { "dia": "Jueves", "inicio": "08:00", "fin": "10:00", "ubicacion": "6107", "actividad": "Probabilidad y Estadística" }
+      { "dia": "Jueves", "inicio": "08:00", "fin": "22:00", "ubicacion": "6107", "actividad": "Probabilidad y Estadística" }
     ]
   },
   {
@@ -459,7 +459,7 @@
     "horarios": [
       { "dia": "Viernes", "inicio": "12:00", "fin": "14:00", "ubicacion": "4301", "actividad": "Cálculo Diferencial" },
       { "dia": "Lunes", "inicio": "10:00", "fin": "12:00", "ubicacion": "7102", "actividad": "Programación en Python" },
-      { "dia": "Jueves", "inicio": "08:00", "fin": "10:00", "ubicacion": "6106", "actividad": "Probabilidad y Estadística" },
+      { "dia": "Jueves", "inicio": "08:00", "fin": "22:00", "ubicacion": "6106", "actividad": "Probabilidad y Estadística" },
       { "dia": "Miércoles", "inicio": "16:00", "fin": "18:00", "ubicacion": "3301", "actividad": "Física I" }
     ]
   },
@@ -471,7 +471,7 @@
     "ubicacion_actual": "7206",
     "estado": "en_clase",
     "horarios": [
-      { "dia": "Jueves", "inicio": "10:00", "fin": "12:00", "ubicacion": "7206", "actividad": "Mecánica de Materiales" },
+      { "dia": "Jueves", "inicio": "10:00", "fin": "22:00", "ubicacion": "7206", "actividad": "Mecánica de Materiales" },
       { "dia": "Miércoles", "inicio": "12:00", "fin": "14:00", "ubicacion": "9101", "actividad": "Física I" },
       { "dia": "Lunes", "inicio": "16:00", "fin": "18:00", "ubicacion": "10305", "actividad": "Cálculo Diferencial" },
       { "dia": "Martes", "inicio": "08:00", "fin": "10:00", "ubicacion": "7203", "actividad": "Probabilidad y Estadística" }
@@ -504,7 +504,6 @@
       { "dia": "Jueves", "inicio": "20:00", "fin": "22:00", "ubicacion": "Laboratorio de Mecatrónica", "actividad": "Automatización Industrial 7K" },
       { "dia": "Lunes", "inicio": "20:00", "fin": "22:00", "ubicacion": "10402", "actividad": "Automatización Industrial K7" },
       { "dia": "Miércoles", "inicio": "20:00", "fin": "22:00", "ubicacion": "4302", "actividad": "Automatización Industrial K7" },
-      { "dia": "Jueves", "inicio": "12:00", "fin": "20:00", "ubicacion": "4302", "actividad": "TEST Automatización Industrial K7" },
       { "dia": "Jueves", "inicio": "18:00", "fin": "20:00", "ubicacion": "Laboratorio de Mecatrónica", "actividad": "Automatización Industrial K7" }
     ]
   }
