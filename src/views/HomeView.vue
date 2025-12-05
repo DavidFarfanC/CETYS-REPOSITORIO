@@ -3,7 +3,7 @@
     <div class="grid items-center gap-12 md:grid-cols-[1.1fr,0.9fr]">
       <div class="space-y-8">
         <p class="inline-flex items-center gap-2 rounded-full bg-white/70 px-4 py-2 text-xs font-semibold uppercase tracking-[0.35em] text-gray-500 shadow-sm backdrop-blur-sm dark:bg-gray-900/40 dark:text-gray-300">
-          By Kamila García
+          By Kamila García - Alicia Gonzalez 
         </p>
         <h1 class="text-4xl font-semibold leading-[1.15] text-cetys-black sm:text-5xl lg:text-6xl dark:text-white">
           Teacher Tracker CETYS
